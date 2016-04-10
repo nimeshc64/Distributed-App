@@ -176,6 +176,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Kozz\Laravel\Providers\Guzzle::class,
 
         /*
          * Third Party Providers
@@ -249,6 +250,7 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'Guzzle'      => Kozz\Laravel\Facades\Guzzle::class,
     ],
 
 ];

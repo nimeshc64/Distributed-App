@@ -59,6 +59,8 @@ return [
         'sidebar' => [
             'dashboard' => 'Dashboard',
             'general' => 'General',
+            'dis' => 'Disaster Manage',
+            'sug' => 'Suggestions',
         ],
     ],
 

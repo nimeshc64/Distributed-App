@@ -55,6 +55,12 @@
                     </li>
                 </ul>
             </li>
+{{--==================================================Disaster Menu================================================================================--}}
+            <li class="header">{{ trans('menus.backend.sidebar.dis') }}</li>
+
+            <li >
+                <a href="{!! url('admin/access/Suggestion') !!}"><span>{{ trans('menus.backend.sidebar.sug') }}</span></a>
+            </li>
 
         </ul><!-- /.sidebar-menu -->
     </section>

@@ -11,6 +11,14 @@ Route::group([
     Route::group(['namespace' => 'User'], function() {
         Route::resource('users', 'UserController', ['except' => ['show']]);
 
+        Route::get('Suggestion','UserController@page')->name('admin.dashboard');
+        Route::get('sugg','UserController@suggestion');
+        Route::get('area','UserController@area');
+        Route::get('disaster','UserController@disaster');
+        Route::get('user','UserController@user');
+        Route::get('approve/{id}','UserController@approve');
+
+
         Route::get('users/deactivated', 'UserController@deactivated')->name('admin.access.users.deactivated');
         Route::get('users/deleted', 'UserController@deleted')->name('admin.access.users.deleted');
         Route::get('account/confirm/resend/{user_id}', 'UserController@resendConfirmationEmail')->name('admin.account.confirm.resend');

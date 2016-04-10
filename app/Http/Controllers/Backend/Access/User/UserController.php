@@ -18,12 +18,19 @@ use App\Repositories\Backend\Permission\PermissionRepositoryContract;
 use App\Http\Requests\Backend\Access\User\PermanentlyDeleteUserRequest;
 use App\Repositories\Frontend\User\UserContract as FrontendUserContract;
 use App\Http\Requests\Backend\Access\User\ResendConfirmationEmailRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+
+
+
 
 /**
  * Class UserController
  */
+
 class UserController extends Controller
 {
+
     /**
      * @var UserContract
      */
@@ -215,5 +222,59 @@ class UserController extends Controller
     {
         $user->sendConfirmationEmail($user_id);
         return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.confirmation_email'));
+    }
+
+    public function url()
+    {
+        return env('Api_Address');
+    }
+
+    public function page()
+    {
+
+        $suggetion=file_get_contents($this->url().'suggestion/findSuggestion');
+        $area=file_get_contents($this->url().'suggestion/getAreabySuggestion');
+        $disaster=file_get_contents($this->url().'suggestion/getDisasterbySuggestion');
+        $user=file_get_contents($this->url().'suggestion/getUserbySuggestion');
+
+//        return view('backend.forms.Suggestion',['leads'=>$result]);
+//return $suggetion;
+//        return view('backend.forms.Suggestion',['sugg'=>$suggetion->to_array()]);
+        $arrays[] = $suggetion;
+        return view('backend.forms.Suggestion',['sugg'=>$arrays]);
+    }
+
+    /**
+     * @return mixed
+     */
+
+    public function  suggestion()
+    {
+        $suggetion=file_get_contents($this->url().'suggestion/findSuggestion');
+        return ($suggetion);
+    }
+
+    public function area()
+    {
+        $area=file_get_contents($this->url().'suggestion/getAreabySuggestion');
+        return ($area);
+    }
+
+    public function disaster()
+    {
+        $disaster=file_get_contents($this->url().'suggestion/getDisasterbySuggestion');
+        return ($disaster);
+    }
+
+    public function user()
+    {
+        $user=file_get_contents($this->url().'suggestion/getUserbySuggestion');
+        return ($user);
+    }
+
+    public function approve($id)
+    {
+        $ID=$id;
+        return $ID;
     }
 }

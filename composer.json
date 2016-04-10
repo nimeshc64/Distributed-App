@@ -13,7 +13,10 @@
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "hieu-le/active": "~2.0",
-        "arcanedev/log-viewer": "~3.0"
+        "arcanedev/log-viewer": "~3.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "kozz/laravel-guzzle-provider": "~6.0",
+        "symfony/psr-http-message-bridge": "0.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
